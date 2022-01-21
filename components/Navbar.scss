@@ -1,0 +1,14 @@
+.navbar {
+  .ui.menu {
+    .item {
+      font-family: Fira Regular Bold, Helvetica, Arial;
+      font-size: 18px;
+      color: $kcolorblue;
+      background: none !important;
+
+      &:hover {
+        color: $kbluelight !important ;
+      }
+    }
+  }
+}
