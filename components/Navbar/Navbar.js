@@ -14,9 +14,9 @@ export default function Navbar() {
               </a>
             </Link>
           </Menu.Item>
-          <Menu secondary>
+          <Menu.Menu position="right">
             <MenuPrincipal />
-          </Menu>
+          </Menu.Menu>
         </Menu>
       </Container>
     </div>
@@ -29,6 +29,12 @@ function MenuPrincipal() {
     <>
     <Link href="/" passHref>
       <Menu.Item name=" Inicio" active={router.pathname == "/"} />
+    </Link>
+    <Link href="/publicaciones" passHref>
+      <Menu.Item name="Publicaciones" active={router.pathname == "/publicaciones"} />
+    </Link>
+    <Link href="/contacto" passHref>
+      <Menu.Item name="Contacto"  active={router.pathname == "/contacto"} />
     </Link>
   </>
   )
