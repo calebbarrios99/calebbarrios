@@ -1,5 +1,9 @@
 .navbar {
-  padding:40px;
+  padding-top: 40px;
+
+  .ui.secondary.menu .item {
+    margin: 0;
+  }
   .ui.menu {
     .item {
       font-family: Fira Regular Bold, Helvetica, Arial;
@@ -9,15 +13,45 @@
 
       &:hover {
         color: $kbluelight !important ;
+        // transform: scale(0,1);
       }
-     
     }
   }
+  a.item {
+    &::after {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 3px;
+      border-radius: 25px;
+      margin: auto;
+      left: 50%;
+      bottom: 0;
+      transform: scale(1, 1);
 
-a.active.item {
-  color: $kbluelight !important;
-   
+      transform: translateX(-50%);
+      background: $kbluelight;
+      transition: 0.3s;
+    }
+    &:hover::after {
+      width: 30%;
+    }
+  }
+  a.active.item {
+    position: relative;
 
-}
-  
+    color: $kbluelight !important;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 30%;
+      height: 3px;
+      border-radius: 25px;
+      margin: auto;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      background: $kbluelight;
+    }
+  }
 }

@@ -3,10 +3,19 @@
 @import "index.scss";
 
 .layout {
+
+  
   h1 {
     font-family: Fira Code Bold,Helvetica, Arial;
     font-size: 50px;
-    color:  $kcolorblue;
+  }
+  h2 {
+    font-family: Fira Code Bold,Helvetica, Arial;
+    font-size: 30px;
+  }
+  p{
+    font-family: 'Fira Code', monospace;
+    text-align: justify;
   }
 
   
