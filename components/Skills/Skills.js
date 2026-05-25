@@ -14,7 +14,6 @@ const categories = [
     icon: "📱",
     skills: [
       { name: "Flutter", emoji: "💙" },
-      { name: "React Native", emoji: "⚛️" },
       { name: "ObjectBox", emoji: "🗄️" },
       { name: "Riverpod", emoji: "🔷" },
       { name: "Provider", emoji: "🔗" },

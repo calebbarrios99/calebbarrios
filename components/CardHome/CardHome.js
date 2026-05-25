@@ -47,10 +47,9 @@ export default function CardHome() {
               <span className="card_home_cursor" />
             </h2>
             <p>
-              Especializado en desarrollo mobile con Flutter y React Native.
-              Manejo state management con Riverpod, Provider y GetX, bases de
-              datos locales con ObjectBox, y construyo sitios web con Next.js y
-              WordPress.
+              Especializado en desarrollo mobile con Flutter. Manejo state
+              management con Riverpod, Provider y GetX, bases de datos locales
+              con ObjectBox, y construyo sitios web con Next.js y WordPress.
             </p>
             <div className="card_home_social">
               <a
