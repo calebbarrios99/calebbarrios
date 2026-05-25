@@ -4,7 +4,7 @@ import { Grid, Image, Icon } from "semantic-ui-react";
 const roles = [
   "Desarrollador Front-End",
   "Desarrollador Mobile",
-  "React Native Developer",
+  "Flutter Developer",
 ];
 
 export default function CardHome() {
