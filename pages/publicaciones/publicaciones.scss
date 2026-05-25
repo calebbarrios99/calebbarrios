@@ -1,0 +1,81 @@
+.publicaciones {
+  padding: 40px 0;
+
+  &_title {
+    color: $kcolorblue;
+    margin-bottom: 8px;
+  }
+
+  &_sub {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+
+  &_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  &_card {
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid #e8e8e8;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 102, 255, 0.12);
+    }
+
+    &_tag {
+      font-family: "Fira Code", monospace;
+      font-size: 11px;
+      background: rgba(0, 102, 255, 0.1);
+      color: $kbluelight;
+      border-radius: 20px;
+      padding: 3px 12px;
+    }
+
+    &_title {
+      color: $kcolorblue;
+      margin: 12px 0 8px;
+      font-size: 18px;
+    }
+
+    &_excerpt {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    &_footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    &_date {
+      font-family: "Fira Code", monospace;
+      font-size: 12px;
+      color: #999;
+    }
+
+    &_link {
+      font-family: "Fira Code", monospace;
+      font-size: 13px;
+      color: $kbluelight;
+      text-decoration: none;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

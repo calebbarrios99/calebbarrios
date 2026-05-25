@@ -2,33 +2,69 @@
   margin-top: 5%;
   border-radius: 25px;
   background: $kbluelight;
+
   .ui.grid > * {
     padding-left: 2rem;
-    /* padding-right: 1rem; */
     padding-bottom: 1px;
   }
 
   &_text {
     padding: 40px 40px 30px;
-    h2{
+
+    h2 {
       text-align: center;
-      color: white ;
+      color: white;
       font-size: 40px;
+      min-height: 60px;
     }
-    p{
+
+    p {
       color: white;
       line-height: 1.4;
       font-size: 16px;
-
     }
   }
 
+  &_cursor {
+    display: inline-block;
+    width: 3px;
+    height: 0.9em;
+    background: white;
+    margin-left: 4px;
+    vertical-align: text-bottom;
+    animation: blink 0.7s step-end infinite;
+  }
+
+  &_social {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    justify-content: center;
+
+    &_link {
+      color: white !important;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.8;
+        transform: scale(1.2);
+      }
+    }
+  }
 
   &_image {
     margin-left: auto !important;
-    margin-right: auto ;
-    // margin-bottom: 0;
+    margin-right: auto;
     height: 100%;
-    margin-left: 2px;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }

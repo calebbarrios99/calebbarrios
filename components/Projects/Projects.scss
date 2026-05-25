@@ -1,0 +1,106 @@
+.projects {
+  margin-top: 60px;
+  margin-bottom: 40px;
+
+  &_title {
+    text-align: center;
+    color: $kcolorblue;
+    margin-bottom: 32px;
+  }
+
+  &_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  &_card {
+    border-radius: 16px;
+    border: 1px solid #e8e8e8;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 102, 255, 0.15);
+    }
+
+    &_header {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &_content {
+      padding: 20px 20px 8px;
+
+      h3 {
+        color: $kcolorblue;
+        margin-bottom: 8px;
+      }
+
+      p {
+        color: #555;
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: left;
+      }
+    }
+
+    &_tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    &_tag {
+      font-family: "Fira Code", monospace;
+      font-size: 11px;
+      background: rgba(0, 102, 255, 0.08);
+      color: $kbluelight;
+      border-radius: 20px;
+      padding: 3px 10px;
+    }
+
+    &_links {
+      padding: 12px 20px 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    &_btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-family: "Fira Code", monospace;
+      font-size: 13px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+
+      &--outline {
+        border: 2px solid $kcolorblue;
+        color: $kcolorblue;
+
+        &:hover {
+          background: $kcolorblue;
+          color: white;
+        }
+      }
+
+      &--filled {
+        background: $kbluelight;
+        color: white;
+        border: 2px solid $kbluelight;
+
+        &:hover {
+          opacity: 0.85;
+        }
+      }
+    }
+  }
+}
