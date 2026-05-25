@@ -57,6 +57,28 @@
     margin-right: auto;
     height: 100%;
   }
+
+  @media (max-width: 768px) {
+    margin-top: 16px;
+    border-radius: 16px;
+
+    &_text {
+      padding: 24px 20px 20px;
+
+      h2 {
+        font-size: 22px;
+        min-height: 40px;
+      }
+
+      p {
+        font-size: 13px;
+      }
+    }
+
+    &_social {
+      margin-top: 16px;
+    }
+  }
 }
 
 @keyframes blink {

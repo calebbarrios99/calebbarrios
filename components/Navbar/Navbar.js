@@ -1,42 +1,94 @@
 import Link from "next/link";
-import React from "react";
-import { Container, Menu, Image } from "semantic-ui-react";
+import React, { useState } from "react";
+import { Container, Image, Icon } from "semantic-ui-react";
 import { useRouter } from "next/router";
+
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="navbar">
-      <Container>
-        <Menu secondary>
-          <Menu.Item>
+    <>
+      <div className="navbar">
+        <Container>
+          <div className="navbar_bar">
             <Link href="/">
-              <a>
+              <a onClick={() => setOpen(false)}>
                 <Image src="/logo-caleb.png" width={"250px"} />
               </a>
             </Link>
-          </Menu.Item>
-          <Menu.Menu position="right">
-            <MenuPrincipal />
-          </Menu.Menu>
-        </Menu>
-      </Container>
-    </div>
+            <button
+              className="navbar_hamburger"
+              onClick={() => setOpen((prev) => !prev)}
+              aria-label="Menu"
+            >
+              <Icon name={open ? "times" : "bars"} size="large" />
+            </button>
+            <nav className="navbar_links">
+              <MenuPrincipal onNavigate={() => {}} />
+            </nav>
+          </div>
+        </Container>
+      </div>
+
+      {open && (
+        <div className="navbar_overlay">
+          <div className="navbar_overlay_header">
+            <Link href="/">
+              <a onClick={() => setOpen(false)}>
+                <Image src="/logo-caleb.png" width={"200px"} />
+              </a>
+            </Link>
+            <button
+              className="navbar_overlay_close"
+              onClick={() => setOpen(false)}
+              aria-label="Cerrar"
+            >
+              <Icon name="times" size="large" />
+            </button>
+          </div>
+          <nav className="navbar_overlay_links">
+            <MenuPrincipal onNavigate={() => setOpen(false)} />
+          </nav>
+        </div>
+      )}
+    </>
   );
 }
 
-function MenuPrincipal() {
+function MenuPrincipal({ onNavigate }) {
   const router = useRouter();
-  return(
+  return (
     <>
-    <Link href="/" passHref>
-      <Menu.Item name=" Inicio" active={router.pathname == "/"} />
-    </Link>
-    <Link href="/publicaciones" passHref>
-      <Menu.Item name="Publicaciones" active={router.pathname == "/publicaciones"} />
-    </Link>
-    <Link href="/contacto" passHref>
-      <Menu.Item name="Contacto"  active={router.pathname == "/contacto"} />
-    </Link>
-  </>
-  )
- 
+      <Link href="/">
+        <a
+          className={`navbar_link${
+            router.pathname === "/" ? " navbar_link--active" : ""
+          }`}
+          onClick={onNavigate}
+        >
+          Inicio
+        </a>
+      </Link>
+      <Link href="/publicaciones">
+        <a
+          className={`navbar_link${
+            router.pathname === "/publicaciones" ? " navbar_link--active" : ""
+          }`}
+          onClick={onNavigate}
+        >
+          Publicaciones
+        </a>
+      </Link>
+      <Link href="/contacto">
+        <a
+          className={`navbar_link${
+            router.pathname === "/contacto" ? " navbar_link--active" : ""
+          }`}
+          onClick={onNavigate}
+        >
+          Contacto
+        </a>
+      </Link>
+    </>
+  );
 }

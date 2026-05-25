@@ -1,57 +1,138 @@
 .navbar {
   padding-top: 40px;
 
-  .ui.secondary.menu .item {
-    margin: 0;
+  &_bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  .ui.menu {
-    .item {
-      font-family: Fira Regular Bold, Helvetica, Arial;
-      font-size: 18px;
-      color: $kcolorblue;
-      background: none !important;
 
-      &:hover {
-        color: $kbluelight !important ;
-        // transform: scale(0,1);
-      }
-    }
+  &_links {
+    display: flex;
+    gap: 8px;
   }
-  a.item {
+
+  &_link {
+    font-family: Fira Regular Bold, Helvetica, Arial;
+    font-size: 18px;
+    color: $kcolorblue;
+    padding: 8px 12px;
+    text-decoration: none;
+    position: relative;
+
     &::after {
       position: absolute;
       content: "";
       width: 0;
       height: 3px;
       border-radius: 25px;
-      margin: auto;
       left: 50%;
       bottom: 0;
-      transform: scale(1, 1);
-
       transform: translateX(-50%);
       background: $kbluelight;
       transition: 0.3s;
     }
-    &:hover::after {
-      width: 30%;
+
+    &:hover {
+      color: $kbluelight;
+      &::after { width: 30%; }
+    }
+
+    &--active {
+      color: $kbluelight;
+      &::after {
+        position: absolute;
+        content: "";
+        width: 30%;
+        height: 3px;
+        border-radius: 25px;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        background: $kbluelight;
+      }
     }
   }
-  a.active.item {
-    position: relative;
 
-    color: $kbluelight !important;
-    &::after {
-      position: absolute;
-      content: "";
-      width: 30%;
-      height: 3px;
-      border-radius: 25px;
-      margin: auto;
-      left: 50%;
-      bottom: 0;
-      transform: translateX(-50%);
-      background: $kbluelight;
+  &_hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $kcolorblue;
+    padding: 4px;
+  }
+
+  // Fullscreen overlay
+  &_overlay {
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    padding: 0 24px;
+
+    &_header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0 24px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    &_close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: $kcolorblue;
+      padding: 4px;
+    }
+
+    &_links {
+      display: flex;
+      flex-direction: column;
+      padding-top: 16px;
+
+      .navbar_link {
+        font-size: 24px;
+        padding: 20px 0;
+        border-bottom: 1px solid #f0f0f0;
+        color: $kcolorblue;
+        text-decoration: none;
+        font-family: Fira Code Bold, Helvetica, Arial;
+
+        &::after { display: none; }
+
+        &:last-child { border-bottom: none; }
+
+        &:hover { color: $kbluelight; }
+
+        &--active { color: $kbluelight; }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 20px;
+
+    img {
+      width: 200px !important;
+    }
+
+    &_links {
+      display: none;
+    }
+
+    &_hamburger {
+      display: block;
+    }
+  }
+
+  // Hide overlay hamburger on desktop
+  @media (min-width: 769px) {
+    &_overlay {
+      display: none;
     }
   }
 }
